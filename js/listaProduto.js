@@ -1,5 +1,5 @@
 function getAllProdutos() {
-    axios.get('http://localhost:8080/produtos')
+    axios.get('http://localhost:8080/produto')
     .then(function(response) {
         console.log(response);
 
