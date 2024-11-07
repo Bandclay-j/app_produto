@@ -124,6 +124,8 @@ function getAllLojas() {
                             "<td>" + loja.endereco + "</td>" +
                             "<td>" + loja.latitude + "</td>" +
                             "<td>" + loja.longitude + "</td>" +
+                            "<td>" + "<button class='btn btn-danger' onclick='confirmarExclusao(" + loja.id + ")'>Excluir</button>" + 
+                            "<button class='btn btn-primary' onclick='editarLoja(" + loja.id + ")' style='margin-left: 10px'>Editar</button>" + "</td>" +
                             "</tr>";
 
             tableBody.append(markup);
