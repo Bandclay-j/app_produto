@@ -15,7 +15,7 @@ function getAllProdutos() {
                          "<td>" + produto.dataCadastro + "</td>" +
                          "<td>" + (produto.categoria ? produto.categoria.nome : "")+ "</td>" +
                          "<td>" + (produto.fornecedor ? produto.fornecedor.nome : "")+ "</td>" +
-                         "<td>" + "<button class='btn btn-danger' onclick='confirmarExclusao(" + produto.id + ")'>Excluir</button>" + 
+                         "<td>" + "<button class='btn btn-danger' onclick='excluirProduto(" + produto.id + ")'>Excluir</button>" + 
                          "<button class='btn btn-primary' onclick='editarProduto(" + produto.id + ")' style='margin-left: 10px'>Editar</button>" + "</td>" +
                          "</tr>";
             tableBody.append(markup);
@@ -26,13 +26,13 @@ function getAllProdutos() {
     });
 }
 
-function confirmarExclusao(id) {
+function excluirProduto(id) {
     // Armazena o ID do produto e exibe o modal de confirmação
     produtoIdParaExcluir = id;
     $('#modalExcluirProduto').modal('show');
 }
 
-document.getElementById("confirmarExclusao").addEventListener("click", function() {
+document.getElementById("excluirProduto").addEventListener("click", function() {
     if (produtoIdParaExcluir) {
         // Chama a função de exclusão com o ID armazenado
         axios.delete('http://localhost:8080/produto/' + produtoIdParaExcluir)
@@ -118,7 +118,7 @@ function getAllLojas() {
         var tableBody = $("table tbody");
 
         jsonData.forEach(loja => {
-            var markup = "<tr>" +
+            var markup = "<tr style='text-align:center'>" +
                             "<td>" + loja.id + "</td>" +
                             "<td>" + loja.nome + "</td>" +
                             "<td>" + loja.endereco + "</td>" +
