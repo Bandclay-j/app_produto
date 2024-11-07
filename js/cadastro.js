@@ -16,3 +16,18 @@ function cadastraProdutos() {
         console.log(error);
     });
 }
+
+function cadastraCategoria() {
+    var nome = $("#categoria").val();
+
+    axios.post('http://localhost:8080/categoria', {
+        "Categoria": nome
+    })
+    .then(function (response) {
+        alert("Categoria cadastrada!");
+        document.location = "listaCategoria.html";
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+}
